@@ -1,0 +1,55 @@
+<!-- Qurstion : when I click on image, it should remove -->
+<!-- GOOD Question -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML events</title>
+</head>
+<body>
+    <h2>Amazing image</h2>
+    <div>
+        <ul id="images">
+            <li><img src="https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="#image" id="apple" width="200px" height="200px"></li>
+            <li><img src="https://images.pexels.com/photos/61127/pexels-photo-61127.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="#image" id="banana" width="200px" height="200px"></li>
+            <li><img src="https://images.pexels.com/photos/918643/pexels-photo-918643.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="#image" id="mango" width="200px" height="200px"></li>
+            <li><img src="https://images.pexels.com/photos/1414110/pexels-photo-1414110.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="#image" id="lemon" width="200px" height="200px"></li>
+            <li><img src="https://images.pexels.com/photos/161559/background-bitter-breakfast-bright-161559.jpeg?auto=compress&cs=tinysrgb&w=600" alt="#image" id="orange" width="200px" height="200px"></li>
+            <li><img src="https://images.pexels.com/photos/373019/pexels-photo-373019.jpeg?auto=compress&cs=tinysrgb&w=600" alt="#image" id="tomato" width="200px" height="200px"></li>
+            <li><img src="https://images.pexels.com/photos/7129145/pexels-photo-7129145.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="#image" id="patato" width="200px" height="200px"></li>
+            <li><img src="https://images.pexels.com/photos/872400/pexels-photo-872400.jpeg?auto=compress&cs=tinysrgb&w=600" alt="#image" id="onion" width="200px" height="200px"></li>
+            <li><img src="https://images.pexels.com/photos/3338495/pexels-photo-3338495.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="#image" id="Coriander" width="200px" height="200px"></li>
+            <li><a href="https://chatgpt.com/" id="chatgpt"> Chat GPT</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+        // this is how we can do it but it is a leanghy process
+        //const images = document.getElementById('images');
+        // const apple = document.getElementById('apple')
+        // images.addEventListener('click', function(e){
+        //     if( e.target.id === "apple"){
+        //         apple.remove()
+        //     }
+        // }, false)
+
+        const images = document.getElementById('images');
+        images.addEventListener('click', function(e){
+
+            // console.log(e.target.parentNode);  // because we do not want to remove only image we also want to remove li so we did parentNode to access parent of image which is li
+            // let removeIt = e.target.parentNode;
+            // removeIt.remove()
+            // this code is perfect code but here the problem is when we click in li that time it target its ul and remove all the ul
+
+            // so we must stop this
+            // for this,
+
+            // console.log(e.target.tagName);  // it gives tag name of which tag clicked
+            if( e.target.tagName === 'IMG'){
+                let removeIt = e.target.parentNode;
+                removeIt.remove();
+            }
+        })
+</script>
+</html>

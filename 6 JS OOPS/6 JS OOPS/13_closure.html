@@ -1,0 +1,39 @@
+<!-- One practicle example of closure -->
+<!-- Very Interesting Example -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+<body>
+    <button id="orange">Orange</button>
+    <button id="red">Red</button>
+</body>
+<script>
+    // document.getElementById("orange").addEventListener('click', function(){
+    //     document.body.style.backgroundColor = "orange"
+    // })
+    // document.getElementById("red").addEventListener('click', function(){
+    //     document.body.style.backgroundColor = "red"
+    // })
+
+    // what if someone ask to create 200 button like this
+    // that it is not good practice to do everything manually
+</script>
+<script>
+    // so we do like this
+    function clickHandler(color){
+        function func(){    
+            document.body.style.backgroundColor = `${color}`
+        }
+        return func;
+    }
+
+    // when we execute only one function that time at a time it is going to execute
+    // but here's where it is not going to execute isntead when we return inner function it comes with lexicle scope( menas outer scope), that is why it runs absolutely fine
+    document.getElementById('orange').addEventListener('click', clickHandler('orange'))  // Now it come with lexicle scope as well (outer scope) that is why this one is going to works
+    document.getElementById('red').addEventListener('click', clickHandler('red'))
+</script>
+</html>

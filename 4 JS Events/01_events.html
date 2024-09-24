@@ -1,0 +1,85 @@
+<!-- learning propogastion(true , false, stopPropagation()) in Events and usecase of preventdefault() -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML events</title>
+</head>
+<body>
+    <h2>Amazing image</h2>
+    <div>
+        <ul id="images">
+            <li><img src="https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="#image" id="apple" width="200px" height="200px"></li>
+            <li><img src="https://images.pexels.com/photos/61127/pexels-photo-61127.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="#image" id="banana" width="200px" height="200px"></li>
+            <li><img src="https://images.pexels.com/photos/918643/pexels-photo-918643.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="#image" id="mango" width="200px" height="200px"></li>
+            <li><img src="https://images.pexels.com/photos/1414110/pexels-photo-1414110.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="#image" id="lemon" width="200px" height="200px"></li>
+            <li><img src="https://images.pexels.com/photos/161559/background-bitter-breakfast-bright-161559.jpeg?auto=compress&cs=tinysrgb&w=600" alt="#image" id="orange" width="200px" height="200px"></li>
+            <li><img src="https://images.pexels.com/photos/373019/pexels-photo-373019.jpeg?auto=compress&cs=tinysrgb&w=600" alt="#image" id="tomato" width="200px" height="200px"></li>
+            <li><img src="https://images.pexels.com/photos/7129145/pexels-photo-7129145.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="#image" id="patato" width="200px" height="200px"></li>
+            <li><img src="https://images.pexels.com/photos/872400/pexels-photo-872400.jpeg?auto=compress&cs=tinysrgb&w=600" alt="#image" id="onion" width="200px" height="200px"></li>
+            <li><img src="https://images.pexels.com/photos/3338495/pexels-photo-3338495.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="#image" id="Coriander" width="200px" height="200px"></li>
+            <li><a href="https://chatgpt.com/" id="chatgpt"> Chat GPT</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+// ++++++++++++++++++++++++++++++++++++ Note +++++++++++++++++++++++++++++++++++
+    // we can learn below topic for interview in events
+    // different type
+    // timeStamp
+    // defaultPrevented
+    // target
+    // toElement
+    // srcElement
+    // curretTarget
+    // clintX, clintY
+    //screenX, screenY
+    //altkey, ctrlkey, shiftkey, keyCode
+
+    // Note: 
+    // giving onclick on the html is not a good approach avoid it
+    // in react it is good to use but in js it not good to use
+    // for js we do below for events
+
+// +++++++++++++++++++++++++ Event propogation +++++++++++++++++++++++++++++++++
+
+    // document.getElementById('apple').addEventListener('click', function(){
+    //     alert("apple clicked again")
+    // }, false)   // false is default over here
+
+    //event propogastion
+    // 1. event bubling  -- false(most of the project)
+    // 2. event capturing -- true
+
+// ++++++++++++++ difference between event bubling and event capturing ++++++++++++++
+    //1. if we write false at both place means we are using event bubling
+    // when we use event bubling that time first insider is click and then outerside is going to clicked here we give two event on apple than first apple event happen and then images event happen
+    document.getElementById('images').addEventListener('click', function(e){
+        console.log("clicked on images");
+        e.stopPropagation()   /// it is helpful to stop propograsion
+        // it is like prevenetDefault()
+    }, false) 
+
+    document.getElementById('apple').addEventListener('click', function(){
+        console.log("clicked on apple");
+    }, false) 
+
+    //2. if we write true at both place means we are using event capturing
+    // when we use event capturing that time first outsider is click and then insider is going to clicked here we give two event on banana then first iamges event happen and then banana event happen
+    document.getElementById('images').addEventListener('click', function(){
+        console.log("clicked on images");
+    }, true) 
+
+    document.getElementById('banana').addEventListener('click', function(){
+        console.log("clicked on banana");
+    }, true) 
+    // both are good it depends on usecase we use
+
+    document.getElementById('chatgpt').addEventListener('click', function(e){
+        e.preventDefault();  // it is going to stop the default behaviour of anchor tag
+        e.stopPropagation();  // stop Propagation
+        console.log(`ChatGPT Clicked`);
+    }, false)
+</script>
+</html>

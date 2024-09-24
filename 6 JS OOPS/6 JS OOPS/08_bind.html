@@ -1,0 +1,41 @@
+<!-- bind keyword -->
+<!-- bind keyword is for when we are not able to get value when function inside a class , and we are trying to call in controctor -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+<body>
+    <button>Button Clicked</button>
+</body>
+<script>
+    // ye sab phle hota tha abhi bahot kam use hota hai
+    class React{
+        constructor(){
+            this.library = "React"
+            this.server = "https://localhost:3000"
+            // requirements
+            // Here we are not able to get libary name 
+            // we use bind(this), in order to get it
+
+            //Below two lines are not logical its for just understanding
+            // call keyword is for when we are not able to get value when function inside the function
+            // bind keyword is for when we are not able to get value when function inside a class , and we are trying to call in controctor
+            document
+                .querySelector('button')
+                .addEventListener('click', this.handleClick.bind(this))
+        }
+
+        handleClick(){
+            console.log("Button Clicked");
+            console.log(this.library);
+        }
+    }
+
+    const app = new React()
+    console.log(app);
+</script>
+</html>

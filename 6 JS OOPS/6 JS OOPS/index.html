@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Interface</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* styles.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #181818;
+    color: white;
+}
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #202020;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.logo img {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-menu li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.sidebar-menu li:hover {
+    background-color: #383838;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.header input {
+    width: 50%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+}
+
+.tags {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.tags span {
+    background-color: #383838;
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.tags span:hover {
+    background-color: #606060;
+}
+
+.videos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.video {
+    background-color: #202020;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.video img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.video p {
+    margin: 0;
+}
+
+</style>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="https://www.youtube.com/s/desktop/c6b9b805/img/favicon_144x144.png" alt="YouTube Logo">
+            </div>
+            <ul class="sidebar-menu">
+                <li>Home</li>
+                <li>Shorts</li>
+                <li>Subscriptions</li>
+                <li>You</li>
+                <li>Your channel</li>
+                <li>History</li>
+                <li>Playlists</li>
+                <li>Your videos</li>
+                <li>Watch Later</li>
+                <li>Liked videos</li>
+            </ul>
+        </nav>
+        <div class="main-content">
+            <header class="header">
+                <input type="text" placeholder="Search">
+            </header>
+            <div class="tags">
+                <span>All</span>
+                <span>JavaScript</span>
+                <span>Data Structures</span>
+                <span>Music</span>
+                <span>Wickets</span>
+                <span>News</span>
+                <span>Machine learning</span>
+                <span>For loop</span>
+                <span>Mixes</span>
+                <span>Git</span>
+                <span>Software Testing</span>
+                <span>Stocks</span>
+                <span>Lo-fi</span>
+                <span>...</span>
+            </div>
+            <div class="videos">
+                <div class="video">
+                    <img src="https://via.placeholder.com/320x180" alt="Video Thumbnail">
+                    <p>At National Car Rental, you’re traveling in control.</p>
+                </div>
+                <div class="video">
+                    <img src="https://via.placeholder.com/320x180" alt="Video Thumbnail">
+                    <p>Complete React course with projects | part 1</p>
+                </div>
+                <div class="video">
+                    <img src="https://via.placeholder.com/320x180" alt="Video Thumbnail">
+                    <p>Mix – Official Video: Chan Kitthan Song</p>
+                </div>
+                <div class="video">
+                    <img src="https://via.placeholder.com/320x180" alt="Video Thumbnail">
+                    <p>Git – Learn Git in 1 Hour</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

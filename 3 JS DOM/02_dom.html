@@ -1,0 +1,35 @@
+<!-- Create an Element by using javaScript-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black; color: white;">
+</body>
+<script>
+    const div = document.createElement('div')  // this just adding the value not overwrite
+    console.log(div);
+    div.className = "main"
+    div.id = Math.round(Math.random()*10 + 1) // for timepass we created this id
+    div.setAttribute("title", "gererated title") // not overwrite , directy set the value
+    div.style.backgroundColor = "green"
+    div.style.padding = "12px"
+    // both are rights
+    div.innerText = "Rahul Rajput"
+    // this all first get the value from this and then set the value by overwriting
+    // there is another method which not get the old value it is going to directly give the value
+    // this one is also a lenght process so both process are alsmost take same time
+    // const addText = document.createTextNode("Rahul Rajput") 
+    // div.appendChild(addText)
+    document.body.appendChild(div)
+
+</script>
+</html>
+
+
+<!--   ++++++++++++++++++++   Note:   ++++++++++++++++++++++++++++++ 
+1.If the attribute already exists: The setAttribute method will overwrite the existing value with the new value you provide.
+2.If the attribute does not exist: The setAttribute method will create a new attribute with the specified name and set its value to the one you provide.    
+     -->

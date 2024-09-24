@@ -1,0 +1,32 @@
+<!--  set and clear the intervals -->
+<!-- Question : make two buttons, when you click on the first button the interval is start, when you click on the second button interval stop -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Rahul Rajput</h1>
+    <button id="start"> Start </button>
+    <button id="stop"> Stop</button>
+</body>
+<script>
+    let intervalID;
+    const saydate = function(){
+        console.log("Rahul Rajput", Date.now());
+    }
+
+    document.getElementById('start').addEventListener('click', function(){
+        intervalID = setInterval(saydate, 1000, "hello")
+        console.log("Start Clicked");
+    })
+
+    document.getElementById('stop').addEventListener('click', function(){
+        console.log("Stop clicked");
+        clearInterval(intervalID);
+    })
+    
+</script>
+</html>

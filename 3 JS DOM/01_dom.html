@@ -1,0 +1,45 @@
+<!-- selecting elements -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select</title>
+</head>
+<body style="background-color: black; color: white;">
+    <div class="parent"  >
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+<script>
+    const parent = document.querySelector('.parent')
+    // console.log(parent);
+    // console.log(parent.children);  // create HTMLCollection of 4 divs
+    // console.log(parent.children[1].innerHTML);  // select second div
+
+// we can do this insdie HTMLCollection
+    for (let index = 0; index < parent.children.length; index++) {
+        console.log(parent.children[index].innerHTML)
+    }
+    parent.children[1].style.backgroundColor = 'orange'
+    // there are other important properties as well
+    // to get first element
+    // console.log(parent.firstElementChild);
+    // to get last element
+    // console.log(parent.lastElementChild);
+
+    const dayOne = document.querySelector('.day')
+    // console.log(dayOne);
+    // sometime we do not want to write all the time document.queryselctor() becaue it a little bit lenght process behind the scene
+    // so that there are some properties we have
+    // console.log(dayOne.parentElement);  // to get parent element
+    // console.log(dayOne.nextElementSibling);  // to get next sibling element
+
+    //nodes are not just the monday , tuesday and all the days there are other nodes present as well like nextline and all like comments 
+    console.log("Nodes: " , parent.childNodes);
+
+</script>
+</html>

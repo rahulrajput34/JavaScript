@@ -1,0 +1,36 @@
+<!--Question:  From XMLHttpsRequest, display the photo and follower of person on webpage  -->
+<!-- use APIs to get followers and picture url -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary';
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', requestUrl); 
+    xhr.onreadystatechange = function(){ 
+        if(xhr.readyState === 4){
+            let data = JSON.parse(this.responseText); 
+            console.log(data);
+            console.log( typeof (data.url));
+
+            const img = document.createElement('img')
+            img.style.height = '200px'
+            img.style.weight = '200px'
+            img.setAttribute('src', data.avatar_url)
+            img.setAttribute('alt', `ImageOne`)
+            document.body.appendChild(img);
+
+            const h2 = document.createElement('h2');
+            h2.textContent = `Followers are :- ${data.followers}`;
+            document.body.appendChild(h2)
+        }
+    }
+    xhr.send()  // Now open is called
+</script>
+</html>

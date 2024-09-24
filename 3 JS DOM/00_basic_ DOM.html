@@ -1,0 +1,78 @@
+<!-- basic interview important knowlgedge -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM JavaScript</title>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-black">
+        <h1 id = title class="heading"> DOM with Rahul Rajput <span style="display: none;"> test text </span></h1>
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+
+        <input type="password">
+    </div>
+
+    <ul>
+        <li class="list-item">One</li>
+        <li class="list-item">Two</li>
+        <li class="list-item">Three</li>
+        <li class="list-item">Four</li>
+    </ul>
+
+<!--  +++++++++++++++++++++++++++++  Important ++++++++++++++++++++++++++++++++ -->
+
+<!-- When you use querySelector to select elements, it returns the first element that matches the specified CSS selector. However, when you use querySelectorAll, it returns a static NodeList representing a list of elements that match the specified group of selectors.
+
+A NodeList is not an array, though it behaves similarly in some ways. For example, you can loop through its elements using forEach, but you can't use array-specific methods like map, filter, or reduce directly on a NodeList.
+    
+So, if you use querySelectorAll('li') to select all <li> elements on a page, you'll indeed get a NodeList containing all those <li> elements. If you need to perform array operations on them, you'll first need to convert the NodeList into an array, typically using Array.from() or the spread operator [...nodeList].
+-->
+
+<!-- +++++++++++++++++++++++ Important Note +++++++++++++++++++++++++ -->
+<!-- we can run our classic for loop in HTML collection and NodeList both  -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+<!-- when we use get element by id or class or tagname that time it is going to give HTML collection -->
+<!-- HTML collection not have looping properites even not forEach -->
+<!-- so we must covert them into array -->
+<!-- this is how we can comvert htmlCollection or nodelist or many thing into array -->
+
+<script>
+    Array.from("Html collegction or node list")  
+</script>
+
+</body>
+</html>
+
+<!-- concept 1 -->
+<!-- getAttribute useful to get a value -->
+<!-- setAttribute useful to set a value -->
+<!-- both overwrite a value so we have so take care of it -->
+<!-- if we want to add without overwrite than we have to use className or id and then add -->
+
+<!-- Concept 2 -->
+<!-- difference amomg innerHTML , textContent, innerText -->
+<!-- inner text (all the visible text on the webpage)-->
+<!-- textContent (all the text what ever writtner inside the code)-->
+<!-- innerHTML (whatever present iside the given tag with tag is any present) -->
+
+<!-- queryselector  selects first given element -->
+<script>
+    document.querySelector("h2")  // for first h2 element
+    document.querySelector(".bg-black")  // for first class which name is bg-black
+    document.querySelector("#title")  // for first element who has title id
+    // using attributr
+    document.querySelector(input[type = "password"])  // select password one 
+
+</script>

@@ -1,0 +1,78 @@
+<!-- Edit and remove DOM elements -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahul Rajput</title>
+</head>
+<body style="background-color: black; color: white;">
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+    // To add a element with value
+    // method 1: little bit long in term of time complexity
+    function addLanguage(langName){
+        // create li 
+        const li = document.createElement('li')
+        // give inner html
+        li.innerHTML = `${langName}`
+        // adding into the child of the ul
+        document.querySelector('.language').appendChild(li)
+    }
+
+    // method 2: little bit fast in term of time complexity
+    function addOptiLanguage(langoptname){
+        // create element
+        const li = document.createElement('li')
+        // creating text
+        const addText = document.createTextNode(langoptname)
+        // adding text into li
+        li.appendChild(addText)
+        // adding into ul
+        document.querySelector('.language').appendChild(li)
+
+    }
+
+    // method 3: remove some varibale from method 2 and store it
+    function addOptiLanguageTwo(langoptname){
+        // create element
+        const li = document.createElement('li')
+        // creating text and adding text into li
+        li.appendChild(document.createTextNode(langoptname))
+        // adding into ul
+        document.querySelector('.language').appendChild(li)
+    }
+    addLanguage("python")
+    addLanguage("Java")
+    addOptiLanguage("C++")
+    addOptiLanguageTwo("C#")
+
+    // To Edit value
+    // Frist method
+    // const secondLang = document.querySelector("li:nth-child(2)") // for selecting perticuler element
+    // secondLang.innerText = "Mojo"
+
+    // Second method and optimised little bit (created new li then old replaced by new)
+    // crete new li 
+    const newthirdLang = document.createElement('li')
+    // newthirdLang.appendChild(document.createTextNode("Tera bapp aaya"))
+    newthirdLang.textContent = "Tera bapp aaya"
+    // selecting third li
+    const thirdLang = document.querySelector("li:nth-child(3)")
+    // replace with used for replace the whole tag
+    thirdLang.replaceWith(newthirdLang)
+
+    //One more method
+    // changeing first child
+    const firstLang = document.querySelector('li:first-child')  // to select first child
+    firstLang.outerHTML = '<li>TypeScripT</li>'
+
+    // Remove
+    const lastlang = document.querySelector('li:last-child')
+    lastlang.remove()
+
+</script>
+</html>
